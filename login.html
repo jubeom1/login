@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>로그인</h2>
+        <form action="{{ url_for('login') }}" method="post">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.email.label }}<br>
+                {{ form.email(size=32) }}
+            </div>
+            <div>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}
+            </div>
+            <div>
+                {{ form.remember_me }} {{ form.remember_me.label }}
+            </div>
+            <div>
+                {{ form.submit }}
+            </div>
+        </form>
+        <div class="social-login">
+            <button>구글 로그인</button>
+            <button>네이버 로그인</button>
+            <button>카카오 로그인</button>
+        </div>
+        <div class="additional-links">
+            <a href="{{ url_for('reset_password') }}">비밀번호를 잊으셨나요?</a><br>
+            <a href="{{ url_for('register') }}">계정 만들기</a>
+        </div>
+    </div>
+</body>
+</html>
